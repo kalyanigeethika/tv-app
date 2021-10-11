@@ -1,0 +1,32 @@
+body{
+    font-family: "Roboto","HelveticaNeue-Light",sans-serif;
+    background:linear-gradient(to bottom, #141b29, #0c111b 300px);
+}
+.card
+{
+    background:transparent!important;
+    max-width:80%!important;
+}
+h1,h2,h3,h4,h5,h6, p{
+    color: rgba(255, 255, 255, 0.8)!important;
+    font-weight:300!important;
+}
+.nav-link, .card-body a, .card-footer
+{
+    color: rgba(255, 255, 255, 0.8);  
+    text-decoration:none;
+}
+.card-body h1{
+    font-size:1.5rem;
+}
+.container
+{
+    margin-top:3%;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: #1c2940;    
+    font-weight:300;
+}
+
+

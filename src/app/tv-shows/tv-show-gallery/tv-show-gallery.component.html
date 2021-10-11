@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let tvshowg of tvshowgallery">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top"
+                    [src]="tvshowg?.resolutions?.medium?.url || tvshowg?.resolutions?.original?.url"
+                    alt="Card image cap">
+            </div>
+        </div>
+    </div>
+</div>

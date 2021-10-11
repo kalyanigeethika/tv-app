@@ -1,0 +1,71 @@
+<div class="container">
+    <div>
+        <h1>Drama</h1>
+        <div class=" row row-cols-1 row-cols-md-5 g-4 dramarow" *ngIf="tvshows && tvshows.length > 0">
+            <ng-container *ngFor="let tvshow of tvshows">
+                <div class="dramacol" *ngIf="tvshow.genres[0]=='Drama'">
+                    <div class="col">
+                        <div class="card h-100">
+                            <a [routerLink]="['../tv-show-details', tvshow.id]">
+                                <img class="card-img-top" [src]="tvshow?.image?.medium || tvshow?.image?.original"
+                                    alt="Card image cap"></a>
+                            <div class="card-body">
+                                <a [routerLink]="['../tv-show-details', tvshow.id]"
+                                    class=" card-text">{{tvshow?.name}}</a>
+                            </div>
+                            <div class="card-footer"><i class="fa fa-star"></i> {{tvshow?.rating?.average}}</div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+    </div>
+    <div>
+        <h1>Action</h1>
+        <div class="row row-cols-1 row-cols-md-5 g-4 actionrow" *ngIf="tvshows && tvshows.length > 0">
+            <ng-container *ngFor="let tvshow of tvshows">
+                <div class="actioncol" *ngIf="tvshow.genres[0]=='Action'">
+                    <div class="col">
+                        <div class="card h-100">
+                            <a [routerLink]="['../tv-shows/tv-show-details', tvshow.id]">
+                                <img class="card-img-top" [src]="tvshow?.image?.medium || tvshow?.image?.original"
+                                    alt="Card image cap"></a>
+                            <div class="card-body">
+                                <a [routerLink]="['../tv-shows/tv-show-details', tvshow.id]"
+                                    class=" card-text">{{tvshow?.name}}</a>
+                            </div>
+                            <div class="card-footer"><i class="fa fa-star"></i> {{tvshow?.rating?.average}}</div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+    </div>
+    <div>
+        <h1>Comedy</h1>
+        <div class=" row row-cols-1 row-cols-md-5 g-4 comedyrow" *ngIf="tvshows && tvshows.length > 0">
+            <ng-container *ngFor="let tvshow of tvshows">
+                <div class="comedycol" *ngIf="tvshow.genres[0]=='Anime'">
+                    <div class="col">
+                        <div class="card h-100">
+                            <a [routerLink]="['../tv-shows/tv-show-details', tvshow.id]">
+                                <img class="card-img-top" [src]="tvshow?.image?.medium || tvshow?.image?.original"
+                                    alt="Card image cap"></a>
+                            <div class="card-body">
+                                <a [routerLink]="['../tv-shows/tv-show-details', tvshow.id]"
+                                    class=" card-text">{{tvshow?.name}}</a>
+                            </div>
+                            <div class="card-footer"><i class="fa fa-star"></i> {{tvshow?.rating?.average}}</div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+    </div>
+    <div class="row row-cols-1 row-cols-md-5 g-4 noresults" *ngIf="tvshows && tvshows.length === 0">
+        <h1> No results found </h1>
+    </div>
+</div>

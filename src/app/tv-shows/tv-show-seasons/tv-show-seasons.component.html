@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="card mb-3" *ngFor="let tvshowsea of tvshowseasons">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <div class="card" style="width: 12rem;">
+                        <img class="card-img-top" [src]="tvshowsea?.image?.medium || tvshowsea?.image?.original"
+                            alt="Card image cap">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h1>Season {{tvshowsea?.number}}</h1>
+                        <p class="card-text">{{tvshowsea?.network?.name}}</p>
+                        <p class="card-text" innerHtml="{{tvshowsea?.summary}}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

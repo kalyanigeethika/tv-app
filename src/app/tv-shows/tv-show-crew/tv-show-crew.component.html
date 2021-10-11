@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="card mb-3" *ngFor="let tvshowc of tvshowcrew">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <div class="card" style="width: 12rem;">
+                        <img class="card-img-top"
+                            [src]="tvshowc?.person?.image?.medium || tvshowc?.person?.image?.original"
+                            alt="Card image cap">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h1>{{tvshowc?.person?.name}}</h1>
+                        <h4 class="card-text">as {{tvshowc?.type}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

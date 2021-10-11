@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-5 g-4 tvrow" *ngIf="tvshows && tvshows.length > 0">
+        <div class="col" *ngFor="let tvshow of tvshows">
+            <div class="card h-100">
+                <a [routerLink]="['../tv-shows/tv-show-details', tvshow.id]">
+                    <img class="card-img-top" [src]="tvshow?.image?.medium || tvshow?.image?.original"
+                        alt="Card image cap"></a>
+                <div class="card-body">
+                    <a [routerLink]="['../tv-shows/tv-show-details', tvshow.id]" class=" card-text">{{tvshow?.name}}</a>
+                </div>
+                <div class="card-footer"><i class="fa fa-star"></i> {{tvshow?.rating?.average}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-12 g-4 noresults" *ngIf="tvshows && tvshows.length === 0">
+        <a class="nav-link" routerLink="../tv-shows/tv-shows-list"><i class="fa fa-arrow-left"></i> Back</a>
+        <h1><i class="fa fa-ban"></i> No results found </h1>
+    </div>
+</div>

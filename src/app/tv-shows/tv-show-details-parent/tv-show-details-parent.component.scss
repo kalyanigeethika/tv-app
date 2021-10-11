@@ -1,0 +1,23 @@
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+.container
+{
+    margin-top:3%;
+}
+h1, p, .nav-pills{
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom:3%;
+}
+.nav-link
+{
+    color: rgba(255, 255, 255, 0.8);  
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: #1c2940;
+}
+.card
+{
+    background:transparent;
+}

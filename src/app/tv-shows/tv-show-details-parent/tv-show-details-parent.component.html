@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+
+        <a class="nav-link" routerLink=""><i class="fa fa-arrow-left"></i> Back</a>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/tv-show-details/2" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}">Main</a>
+            </li>
+            <li class=" nav-item">
+                <a class="nav-link" routerLink="tv-show-episodes" routerLinkActive="active">Episodes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="tv-show-seasons" routerLinkActive="active">Seasons</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="tv-show-cast" routerLinkActive="active">Cast</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="tv-show-crew" routerLinkActive="active">Crew</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="tv-show-gallery" routerLinkActive="active">Gallery</a>
+            </li>
+        </ul>
+        <div class="card mb-3">
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>

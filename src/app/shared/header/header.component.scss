@@ -1,0 +1,40 @@
+.navbar
+{
+    min-height:80px;
+    background:linear-gradient(to bottom, #334366, #334366, #1c2940); 
+}
+.navbar-light .navbar-nav .nav-link, .dropdown-item, .fa-search
+{
+    color:rgba(255, 255, 255, 0.8);
+}
+.dropdown-menu
+{
+    background:linear-gradient(to bottom, #334366, #334366, #1c2940);  
+    color:rgba(255, 255, 255, 0.8);
+}
+.fa
+{
+    font-size: 12px;
+}
+.fa-bars
+{
+    font-size:24px;
+}
+.input-group .btn, .form-control, ::placeholder, input:focus {
+   background-color:transparent;
+   color: rgba(255, 255, 255, 0.8);
+   border:none;
+}
+.input-group
+{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+ }
