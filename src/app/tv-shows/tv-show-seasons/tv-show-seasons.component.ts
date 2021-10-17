@@ -10,18 +10,25 @@ import { TvShowsService } from './../../services/tv-shows.service';
 export class TvShowSeasonsComponent implements OnInit {
   id: any;
   tvshowseasons: any;
+  errorMsg!: string;
   constructor(@Inject(ActivatedRoute) private route: ActivatedRoute, @Inject(Router) private router: Router, @Inject(TvShowsService) private tvs: TvShowsService) { }
 
   ngOnInit() {
+    //we will get the route param id in order to display the id show details
     this.id = this.route.parent?.snapshot.paramMap.get("id");
     this.gettvShowSeasons();
   }
   gettvShowSeasons() {
+    //we will get the route param id and subscribe the tv show show api in order to display the id show details
     this.tvs.gettvShowSeasons(this.id).subscribe(
       (tvshowseasons: any) => {
         this.tvshowseasons = tvshowseasons
       },
-      err => console.log(err)
+      //Will display error message
+      (err) => {
+        this.errorMsg = err;
+        throw err;
+      }
     );
   }
 

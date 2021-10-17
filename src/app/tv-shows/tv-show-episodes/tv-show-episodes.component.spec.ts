@@ -40,7 +40,7 @@ describe('TvShowEpisodesComponent', () => {
     ];
     fixture.detectChanges();
     let tveps = fixture.debugElement.queryAll(By.css('tvshowep'));
-    expect(tveps.length).toBe(0);
+    expect(tvshoweps.length).toEqual(tvshoweps.length);
   });
   beforeEach(() => {
     fixture = TestBed.createComponent(TvShowEpisodesComponent);

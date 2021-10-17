@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { PeopleComponent } from './people/people.component';
 import { AllTvShowsComponent } from './all-tv-shows/all-tv-shows.component';
 import { FormsModule } from '@angular/forms';
 import { DataPoliciesComponent } from './data-policies/data-policies.component';
@@ -19,7 +18,6 @@ import { TvShowsService } from './services/tv-shows.service';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    PeopleComponent,
     AllTvShowsComponent,
     DataPoliciesComponent,
     PrivacyPolicyComponent,

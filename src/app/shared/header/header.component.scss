@@ -24,6 +24,12 @@
    background-color:transparent;
    color: rgba(255, 255, 255, 0.8);
    border:none;
+   border-radius:0!important;
+}
+.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu)
+{
+    border-radius:0!important;
+    background:transparent!important;
 }
 .input-group
 {

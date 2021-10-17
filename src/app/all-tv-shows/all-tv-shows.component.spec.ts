@@ -6,12 +6,13 @@ import { AllTvShowsComponent } from './all-tv-shows.component';
 import { TvShowsListComponent } from '../tv-shows/tv-shows-list/tv-shows-list.component';
 import { TvShowDetailsComponent } from '../tv-shows/tv-show-details/tv-show-details.component';
 import { By } from '@angular/platform-browser';
-import { RouterLinkWithHref } from '@angular/router';
+import { RouterLinkWithHref, Router } from '@angular/router';
 import { ElementRef } from '@angular/core'
 
 describe('AllTvShowsComponent', () => {
   let component: AllTvShowsComponent;
   let fixture: ComponentFixture<AllTvShowsComponent>;
+
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -20,6 +21,9 @@ describe('AllTvShowsComponent', () => {
         { path: '../tv-shows/tv-shows-list', component: TvShowsListComponent },
       ]), HttpClientTestingModule],
       declarations: [AllTvShowsComponent, TvShowDetailsComponent, TvShowsListComponent],
+      providers: [
+
+      ],
       schemas: [NO_ERRORS_SCHEMA]
     })
       .compileComponents();
@@ -32,6 +36,13 @@ describe('AllTvShowsComponent', () => {
     });
     expect(index).toBeGreaterThan(-3);
   });
+  it('should have a link to /', async(() => {
+    const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
+    const index = debugElements.findIndex(de => {
+      return de.properties['href'] === '../tv-shows/tv-show-details/1';
+    });
+    expect(index).toBeGreaterThan(-3);
+  }));
   it('should have a link to /', () => {
     const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
     const index = debugElements.findIndex(de => {
@@ -39,26 +50,38 @@ describe('AllTvShowsComponent', () => {
     });
     expect(index).toBeGreaterThan(-2);
   });
-  it('tvrow', () => {
+  it('should have a link to /', async(() => {
+    const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
+    const index = debugElements.findIndex(de => {
+      return de.properties['href'] === '../tv-shows/tv-shows-list';
+    });
+    expect(index).toBeGreaterThan(-3);
+  }));
+
+  it('tvrow when condition is true', () => {
+    (component.tvshows) && (component.tvshows.length > 0) == true;
     fixture.detectChanges();
     const element: ElementRef = fixture.debugElement.query(By.css('.tvrow'));
-    fixture.detectChanges();
+    expect(element).toBeDefined();
   });
-  it('tvrow', async(() => {
+  it('tvrow when condition is false', () => {
+    (component.tvshows) && (component.tvshows.length > 0) == false;
     fixture.detectChanges();
     const element: ElementRef = fixture.debugElement.query(By.css('.tvrow'));
-    fixture.detectChanges();
-  }));
-  it('noresults', () => {
-    fixture.detectChanges();
-    const element: ElementRef = fixture.debugElement.query(By.css('.noresults'));
-    fixture.detectChanges();
+    expect(element).toBeFalsy();
   });
-  it('noresults', async(() => {
+  it('noresults when condition is true', () => {
+    ((component.tvshows && component.tvshows.length) === 0) == true;
     fixture.detectChanges();
     const element: ElementRef = fixture.debugElement.query(By.css('.noresults'));
+    expect(element).toBeDefined();
+  });
+  it('noresults when condition is false', () => {
+    ((component.tvshows && component.tvshows.length) === 0) == false;
     fixture.detectChanges();
-  }));
+    const element: ElementRef = fixture.debugElement.query(By.css('.noresults'));
+    expect(element).toBeFalsy();
+  });
   beforeEach(() => {
     fixture = TestBed.createComponent(AllTvShowsComponent);
     component = fixture.componentInstance;

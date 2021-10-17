@@ -43,7 +43,7 @@ describe('TvShowsService', () => {
     httpMock.verify();
   });
   it("should throw error", () => {
-    let error: string;
+    let error: any;
     tvs.gettvShows().subscribe(null, e => {
       error = e;
     });
@@ -53,6 +53,7 @@ describe('TvShowsService', () => {
       statusText: "Network error"
     });
     httpMock.verify();
+    expect(error.indexOf("Error retreiving shows data") >= 0).toBeFalsy();
   });
   it("gettvShow() should http GET show id", () => {
     tvs.gettvShow(1).subscribe();
@@ -66,7 +67,7 @@ describe('TvShowsService', () => {
   });
 
   it("should throw error when http GET show id fails", () => {
-    let error: string;
+    let error: any;
     tvs.gettvShow(2).subscribe(null, e => {
       error = e;
     });
@@ -79,7 +80,7 @@ describe('TvShowsService', () => {
       status: 404,
       statusText: "Network error"
     });
-
+    expect(error.indexOf("Error retreiving shows id data") >= 0).toBeFalsy();
   });
   it("gettvShowEp() should http GET show id Episode", () => {
     tvs.gettvShowEp(1).subscribe();
@@ -93,7 +94,7 @@ describe('TvShowsService', () => {
   });
 
   it("should throw error when http GET show id Episode fails", () => {
-    let error: string;
+    let error: any;
     tvs.gettvShowEp(2).subscribe(null, e => {
       error = e;
     });
@@ -106,6 +107,7 @@ describe('TvShowsService', () => {
       status: 404,
       statusText: "Network error"
     });
+    expect(error.indexOf("Error retreiving shows id episode data") >= 0).toBeFalsy();
   });
   it("gettvShowSeasons() should http GET show id seasons", () => {
     tvs.gettvShowSeasons(1).subscribe();
@@ -119,7 +121,7 @@ describe('TvShowsService', () => {
   });
 
   it("should throw error when http GET show id Seasons fails", () => {
-    let error: string;
+    let error: any;
     tvs.gettvShowSeasons(2).subscribe(null, e => {
       error = e;
     });
@@ -132,6 +134,7 @@ describe('TvShowsService', () => {
       status: 404,
       statusText: "Network error"
     });
+    expect(error.indexOf("Error retreiving shows id seasons data") >= 0).toBeFalsy();
   });
 
   it("gettvShowCrew() should http GET show id crew", () => {
@@ -146,7 +149,7 @@ describe('TvShowsService', () => {
   });
 
   it("should throw error when http GET show id crew fails", () => {
-    let error: string;
+    let error: any;
     tvs.gettvShowCrew(2).subscribe(null, e => {
       error = e;
     });
@@ -159,6 +162,7 @@ describe('TvShowsService', () => {
       status: 404,
       statusText: "Network error"
     });
+    expect(error.indexOf("Error retreiving shows id crew data") >= 0).toBeFalsy();
   });
 
 
@@ -174,7 +178,7 @@ describe('TvShowsService', () => {
   });
 
   it("should throw error when http GET show id cast fails", () => {
-    let error: string;
+    let error: any;
     tvs.gettvShowCast(2).subscribe(null, e => {
       error = e;
     });
@@ -187,9 +191,10 @@ describe('TvShowsService', () => {
       status: 404,
       statusText: "Network error"
     });
+    expect(error.indexOf("Error retreiving shows id cast data") >= 0).toBeFalsy();
   });
 
-  it("gettvShowGallery() should http GET show id cast", () => {
+  it("gettvShowGallery() should http GET show id gallery", () => {
     tvs.gettvShowGallery(1).subscribe();
     let id = 1;
     const req = httpMock.expectOne({
@@ -200,8 +205,8 @@ describe('TvShowsService', () => {
     expect(req).toBeDefined();
   });
 
-  it("should throw error when http GET show id cast fails", () => {
-    let error: string;
+  it("should throw error when http GET show id gallery fails", () => {
+    let error: any;
     tvs.gettvShowGallery(2).subscribe(null, e => {
       error = e;
     });
@@ -214,6 +219,7 @@ describe('TvShowsService', () => {
       status: 404,
       statusText: "Network error"
     });
+    expect(error.indexOf("Error retreiving shows id gallery data") >= 0).toBeFalsy();
   });
 
   afterEach(() => {

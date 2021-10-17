@@ -12,6 +12,7 @@ export class PrivacyPolicyComponent implements OnInit {
   constructor(@Inject(TvShowsService) private tvs: TvShowsService) { }
 
   ngOnInit() {
+    //Got input value from search box and based on the input value will call search api and subscribe it and display the search results in the tv shows componen
     this.tvs.searchob.subscribe(v => {
       this.tvs.gettvShowSearch(v).subscribe(
         (tvshows: any) => {

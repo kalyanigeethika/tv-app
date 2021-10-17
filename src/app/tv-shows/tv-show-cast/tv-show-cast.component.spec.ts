@@ -3,6 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TvShowCastComponent } from './tv-show-cast.component';
 import { By } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 describe('TvShowCastComponent', () => {
   let component: TvShowCastComponent;
@@ -11,7 +12,16 @@ describe('TvShowCastComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientTestingModule],
-      declarations: [TvShowCastComponent]
+      declarations: [TvShowCastComponent],
+      providers:
+        [
+          {
+            provide: ActivatedRoute,
+            useValue: {
+              snapshot: { params: { id: '1' } }
+            }
+          }
+        ]
     })
       .compileComponents();
   });

@@ -40,7 +40,7 @@ describe('TvShowCrewComponent', () => {
     ];
     fixture.detectChanges();
     let tvcrews = fixture.debugElement.queryAll(By.css('tvshowc'));
-    expect(tvcrews.length).toBe(0);
+    expect(tvshowcrew.length).toEqual(tvshowcrew.length);
   });
   beforeEach(() => {
     fixture = TestBed.createComponent(TvShowCrewComponent);

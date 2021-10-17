@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, inject, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -40,7 +40,12 @@ describe('FooterComponent', () => {
     });
     expect(index).toBeGreaterThan(-1);
   });
-
+  describe('query', () => {
+    it('should display the span text', () => {
+      const element = fixture.debugElement.query(By.css('.foot'));
+      expect(element.nativeElement.innerText.trim()).toEqual('Get connected with us on social networks:');
+    });
+  })
   it('should have a link to /', () => {
     const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
     const index = debugElements.findIndex(de => {

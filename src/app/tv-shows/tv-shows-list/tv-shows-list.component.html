@@ -47,7 +47,7 @@
         <h1>Comedy</h1>
         <div class=" row row-cols-1 row-cols-md-5 g-4 comedyrow" *ngIf="tvshows && tvshows.length > 0">
             <ng-container *ngFor="let tvshow of tvshows">
-                <div class="comedycol" *ngIf="tvshow.genres[0]=='Anime'">
+                <div class="comedycol" *ngIf="tvshow.genres[0]=='Comedy'">
                     <div class="col">
                         <div class="card h-100">
                             <a [routerLink]="['../tv-shows/tv-show-details', tvshow.id]">
